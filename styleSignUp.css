@@ -1,0 +1,46 @@
+body{
+    background-color: #fae1dd;
+}
+
+
+
+
+h1{
+    padding: 0.5em 0;
+    font-family: cursive;
+    /* border-bottom: 1px solid double; */
+}
+
+.card{
+    width: 30%;
+    height: 65vh;
+    background-color: aliceblue;
+    border: 1px solid wheat;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.heading{
+    text-align: center;
+    font-family: 'Ranchers', cursive;
+    padding: 1em;
+    font-size: 3em;
+    color: teal;
+}
+
+.Input{
+    margin: 2em 1em;
+    text-align: center;
+    font-weight: bol;
+}
+
+.button{
+    text-align: center;
+}
