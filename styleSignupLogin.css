@@ -35,9 +35,22 @@ h1{
 .Input{
     margin: 2em 1em;
     text-align: center;
-    font-weight: bol;
+    font-weight: bolder;
 }
 
 .button{
     text-align: center;
+}
+
+.detail{
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+input{
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    
 }
