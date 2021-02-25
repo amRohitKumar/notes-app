@@ -10,7 +10,7 @@ h1{
 
 .card{
     width: 30%;
-    height: 65vh;
+    height: 70vh;
     background-color: aliceblue;
     border: 1px solid wheat;
     border-radius: 10px;
@@ -53,4 +53,7 @@ input{
     border: 1px solid #ced4da;
     border-radius: 5px;
     
+}
+a{
+    padding-left: 0.5em;
 }
