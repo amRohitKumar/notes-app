@@ -1,46 +1,41 @@
-
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyAhrcWXej7FwXF2mH8IBhEIlm27Gvu96a4",
-    authDomain: "notes-app-5516a.firebaseapp.com",
-    projectId: "notes-app-5516a",
-    storageBucket: "notes-app-5516a.appspot.com",
-    messagingSenderId: "789622529935",
-    appId: "1:789622529935:web:123d13640ee48100b775fa"
-};
+    apiKey: "AIzaSyAdOe_JssV-5HlVYM0GhFwKlT_G_d-8q2M",
+    authDomain: "notes-app-a51b7.firebaseapp.com",
+    projectId: "notes-app-a51b7",
+    storageBucket: "notes-app-a51b7.appspot.com",
+    messagingSenderId: "415019923323",
+    appId: "1:415019923323:web:601a346c65aca6fee42fde"
+  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 
-// Reference contactInfo collections
+const button = document.querySelector('#contactForm');
 
-let contactInfo = firebase.database().ref("infos");
-
-
-document.querySelector("#contactForm").addEventListener("submit", submitForm);
-
-function submitForm(e) {
+button.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    let fname = document.querySelector("#firstName").value;
-    let lname = document.querySelector("#lastName").value;
+    var fname = document.querySelector("#firstName").value;
+    var lname = document.querySelector("#lastName").value;
     let email = document.querySelector("#email").value;
     let password = document.querySelector("#password").value;
 
-    saveContactInfo(fname, lname, email, password);
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            window.alert('Congo !!! User registration sucessfull');
+            let id = firebase.auth().currentUser.uid;
+            firebase.database().ref('User/'+id).set({
+                firstName: fname,
+                lastName: lname,
+                email: email
+            })
+        })
+        .catch((error) => {
+            let errorcode = error.code;
+            let errormsg = error.message;
 
+            window.alert('Something went wrong !',errorcode, errormsg);
+        })
+    
     document.querySelector("#contactForm").reset();
-}
-
-// save infos to firebase
-
-function saveContactInfo(fname, lname, email, password) {
-    let newContactInfo = contactInfo.push();
-
-    newContactInfo.set({
-        firstName: fname,
-        lastName: lname,
-        email: email,
-        password: password
-    });
-}
+})
