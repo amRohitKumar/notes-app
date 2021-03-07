@@ -1,0 +1,22 @@
+body{
+    background-color: #fae1dd;
+}
+
+nav.sticky{
+    margin: 1em;
+    position: sticky;
+    top: 0;
+}
+
+#topheading{
+    text-align: center;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+#notes{
+    margin-top:  2em;
+    border: 3px solid #cbc0d3;
+    height: 80vh;
+    overflow-y: scroll;
+}
