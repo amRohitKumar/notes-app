@@ -23,6 +23,13 @@ button.addEventListener('submit', (e) => {
     .then((userCredential) => {
         window.alert('Welcome !!!');
     })
+    .then(() => {
+        let id = firebase.auth().currentUser.uid;
+        localStorage.setItem('ID', id);
+    })
+    .then(() => {
+        window.location.href = "homePage.html";
+    })
     .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
