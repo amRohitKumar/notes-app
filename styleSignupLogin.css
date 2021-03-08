@@ -57,3 +57,12 @@ input{
 a{
     padding-left: 0.5em;
 }
+
+.flag{
+    background-color: rgb(94, 245, 94);
+    text-align: center;
+}
+
+.none{
+    display: none;
+}

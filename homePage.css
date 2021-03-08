@@ -20,3 +20,7 @@ nav.sticky{
     height: 80vh;
     overflow-y: scroll;
 }
+
+.capital{
+    text-transform: capitalize;
+}
