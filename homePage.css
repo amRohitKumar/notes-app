@@ -14,13 +14,49 @@ nav.sticky{
     font-weight: bold;
 }
 
-#notes{
-    margin-top:  2em;
-    border: 3px solid #cbc0d3;
-    height: 80vh;
-    overflow-y: scroll;
-}
 
 .capital{
     text-transform: capitalize;
+}
+
+#notes{
+    margin-top:  2em;
+    border: 3px solid #cbc0d3;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.prevClass{
+    /* this is the class given to each preview div */
+    border: 4px inherit whitesmoke;
+    box-shadow: 5px 10px #4361ee;
+    margin: 0.8em 0.3em;
+    color: white;
+    padding: 0.5em;
+    background-color: #7209b7;
+    height: auto;
+    max-height: 30vh;
+    font-family: 'Redressed', cursive;
+    font-size: 1.5em;
+    justify-content: center;
+}
+
+.prevClass:hover{
+    background-color: #560bad;
+
+}
+
+.btndiv{
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div button{
+    margin: 0.005em 0.5em;
+    
+}
+div button:hover{
+    transform: translateY(-3px);
+    /* box-shadow: 5px 5px 2px -1px #4361ee; */
 }
