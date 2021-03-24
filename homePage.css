@@ -1,11 +1,18 @@
 body{
-    background-color: #fae1dd;
+    background-color: #eee2dc;
+    background-image: url(backgroundimg.jpg);
+    background-size: cover;
+    overflow-y: visible;
 }
 
 nav.sticky{
     margin: 1em;
     position: sticky;
     top: 0;
+}
+
+nav{
+    background-color: #e98074;
 }
 
 #topheading{
@@ -21,42 +28,57 @@ nav.sticky{
 
 #notes{
     margin-top:  2em;
-    border: 3px solid #cbc0d3;
-    height: 100vh;
-    overflow-y: scroll;
+    /* border: 3px solid #cbc0d3; */
+    /* height: 100vh; */
+    overflow-y: visible;
 }
 
 .prevClass{
     /* this is the class given to each preview div */
-    border: 4px inherit whitesmoke;
-    box-shadow: 5px 10px #4361ee;
+    border: 2px inherit whitesmoke;
     margin: 0.8em 0.3em;
-    color: white;
+    color: #8860d0;
     padding: 0.5em;
-    background-color: #7209b7;
+    background-color: #c1c8e452;
     height: auto;
     max-height: 30vh;
     font-family: 'Redressed', cursive;
     font-size: 1.5em;
-    justify-content: center;
+    transition: box-shadow .3s;
+    overflow-y: auto;
 }
 
 .prevClass:hover{
-    background-color: #560bad;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    /* background-color: #bab2b5; */
+    /* margin: 1em 0.5em; */
+    /* transform: translateY(-3px); */
+    overflow: auto;
+    box-sizing: border-box;
+    
 
 }
 
 .btndiv{
-    display: block;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
+    transition: all .5s;
 }
 div button{
     margin: 0.005em 0.5em;
     
 }
-div button:hover{
+
+a{
+    border: 1px solid black;
+    margin: 5px !important;
+    transition: all 0.3s;
+}
+a:hover{
     transform: translateY(-3px);
-    /* box-shadow: 5px 5px 2px -1px #4361ee; */
+}
+
+.none{
+    visibility: hidden;
 }
