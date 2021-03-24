@@ -71,7 +71,7 @@ div button{
 }
 
 a{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 5px !important;
     transition: all 0.3s;
 }
@@ -81,4 +81,12 @@ a:hover{
 
 .none{
     visibility: hidden;
+}
+
+.nopointer{
+    cursor: default;
+    /* padding-bottom: 0.075em  !important; */
+    display: flex;
+    justify-content: center;
+    align-items: center ;
 }

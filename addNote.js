@@ -36,49 +36,9 @@ button.addEventListener('click', (e) => {
 
   usersRef.get()
     .then((coll) => {
-      if (coll.exists) {
-        // user already exist
-        
-        // console.log("Document data:", doc.data());
-
-        // firestore.collection('users').doc(userid).update({
-        //   messages: firebase.firestore.FieldValue.arrayUnion(notes)
-        // })
-        //   .then(() => {
-        //     window.alert("Note Successfully Added !")
-        //     window.location.replace("homePage.html");
-        //   });
         usersRef.add({
-          note: notes
-        })
-          .then(() => {
-            window.alert("Note Successfully Added !")
-            window.location.replace("homePage.html");
-          });
-        // usersRef.add({
-        //   note: notes
-        // })
-        
-      }
-      else {
-        // doc.data() will be undefined in this case
-        // console.log("No such document!");
-
-        // firestore.collection("users").doc(userid).set({
-        //   messages: [notes]
-        // })
-        //   .then(() => {
-        //     window.alert("Note Successfully Added !");
-        //     console.log("Document successfully written!");
-        //   })
-        //   .then(() => {
-        //     window.location.replace("homePage.html");
-        //   })
-        //   .catch((error) => {
-        //     console.error("Error writing document: ", error);
-        //   });
-        usersRef.add({
-          note: notes
+          note: notes,
+          timestamp: new Date()
         })
           .then(() => {
             window.alert("Note Successfully Added !");
@@ -90,11 +50,6 @@ button.addEventListener('click', (e) => {
           .catch((error) => {
             console.error("Error writing document: ", error);
           });
-
-        // usersRef.add({
-        //   note: notes
-        // })
-      }
 
     })
     .catch((error) => {

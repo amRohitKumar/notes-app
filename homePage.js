@@ -20,7 +20,7 @@ const docRef = firestore.collection(userid);
 
 
 const editDoc = (note, id) => {
-
+    //              FUNCTION TO EDIT THE NOTE
     localStorage.setItem('currNote', note);
     localStorage.setItem('docId', id);
     window.location.replace("editNote.html");
@@ -28,10 +28,14 @@ const editDoc = (note, id) => {
 };
 
 const createNote = (doc) => {
+    //         CREATING DIV FOR EACH NOTE AND APPENDING IT IN PREV DIV
+
+
     let note = doc.get('note');
     let docId = doc.id;
-
-
+    let timestamp;
+    timestamp = doc.get('timestamp');
+    // console.dir(timestamp);
     // creating elements
     const box = document.createElement('div');
     const btndiv = document.createElement('div');
@@ -39,29 +43,46 @@ const createNote = (doc) => {
     btn1.classList.add('btns');
     const btn2 = document.createElement('a');
     btn1.classList.add('btns');
+    const btn3 = document.createElement('span');
+    btn3.classList.add('btns');
 
 
     // adding class to elements
-    box.classList.add('prevClass', 'capital', 'container');
+    box.classList.add('prevClass', 'container');
     btndiv.classList.add('btndiv');
     btn1.classList.add('btn', 'btn-light', 'btn-sm');
     btn2.classList.add('btn', 'btn-light', 'btn-sm');
-    btn1.innerText = 'Delete'
+    btn3.classList.add('btn', 'btn-light', 'btn-sm', 'nopointer');
+    btn1.innerHTML = '<i class="bi bi-trash"></i> \u00A0\u00A0 &nbspDelete'
+    // btn1.innerText = 'Delete'
     btn1.href = '#';
     btn1.setAttribute('onclick', `deleteDoc("${docId}")`);
 
-    btn2.innerText = 'Edit'
+    btn2.innerHTML = '<i class="bi bi-pencil-square"> \u00A0\u00A0 &nbsp</i>Edit'
     btn2.href = '#';
     btn2.setAttribute('onclick', `editDoc("${note}", "${docId}")`)
-
+    let t = timestamp.toDate();
+    // console.dir(t);
+    let date = t.getDate();
+    let month = t.getMonth();
+    let year = t.getFullYear();
+    let hour = t.getHours();
+    let min = t.getMinutes();
+    // console.log(t.loca)
+    let final = `Date: ${date}-${month}-${year} Time: ${hour}:${min}`;
+    console.log(final);
+    // let tt = t.slice(0,24);
+    btn3.innerHTML = `<i class="bi bi-calendar-check"></i> \u00A0\u00A0 ${final}`;
     // appending element to body
-    btndiv.append(btn2, btn1);
+    btndiv.append(btn3, btn2, btn1);
     box.append(note);
     box.append(btndiv);
     notePrev.append(box);
 };
 
 const deleteDoc = (id) => {
+    //                                  FUNCTION TO DELETE A NOTE
+
 
     docRef.doc(id).delete()
         .then(() => {
@@ -88,7 +109,7 @@ window.addEventListener('load', () => {
     database.on('value', (snapshot) => {
         const username = snapshot.val().firstName + ' ' + snapshot.val().lastName;
         // console.log(username);
-        userName.innerText = 'Welcome ' + username + '  !';
+        userName.innerText = `Welcome ${username} !`;
         userName.classList.add('capital');
     });
 
@@ -150,7 +171,8 @@ signOut.addEventListener('click', () => {
     firebase.auth().signOut()
         .then(() => {
             window.location.replace("loginPage.html");
-            window.alert('Logout Successfully !')
+            window.alert('Logout Successfully !');
+            localStorage.clear();
 
         }).catch((error) => {
             var errorCode = error.code;

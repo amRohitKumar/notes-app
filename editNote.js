@@ -36,11 +36,12 @@ const updateNote = (id) => {
     const newNote = textarea.value;
 
     docRef.doc(id).set({
-        note: newNote
+        note: newNote,
+        timestamp: new Date()
     }, {
         // MERGE => TRUE
 
-        merge: true,
+        merge: false,
     })
         .then(() => {
 
