@@ -11,9 +11,6 @@ nav.sticky{
     top: 0;
 }
 
-nav{
-    background-color: #e98074;
-}
 
 #topheading{
     text-align: center;
@@ -44,26 +41,27 @@ nav{
     max-height: 30vh;
     font-family: 'Redressed', cursive;
     font-size: 1.5em;
-    transition: box-shadow .3s;
+    transition: all .3s;
     overflow-y: auto;
+    border-radius: 0.75em;
 }
 
 .prevClass:hover{
     box-shadow: 0 0 11px rgba(33,33,33,.2);
     /* background-color: #bab2b5; */
-    /* margin: 1em 0.5em; */
+    /* padding: 0.5em 0.5em; */
     /* transform: translateY(-3px); */
     overflow: auto;
     box-sizing: border-box;
-    
-
+    color: #562ea0;
+    background-color: #939ec752;
 }
 
 .btndiv{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    transition: all .5s;
+    /* transition: all .5s; */
 }
 div button{
     margin: 0.005em 0.5em;
@@ -76,7 +74,7 @@ a{
     transition: all 0.3s;
 }
 a:hover{
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .none{

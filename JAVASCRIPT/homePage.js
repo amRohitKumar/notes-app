@@ -49,7 +49,7 @@ const createNote = (doc) => {
 
     // adding class to elements
     box.classList.add('prevClass', 'container');
-    btndiv.classList.add('btndiv');
+    btndiv.classList.add('btndiv', 'none');
     btn1.classList.add('btn', 'btn-light', 'btn-sm');
     btn2.classList.add('btn', 'btn-light', 'btn-sm');
     btn3.classList.add('btn', 'btn-light', 'btn-sm', 'nopointer');
@@ -61,23 +61,25 @@ const createNote = (doc) => {
     btn2.innerHTML = '<i class="bi bi-pencil-square"> \u00A0\u00A0 &nbsp</i>Edit'
     btn2.href = '#';
     btn2.setAttribute('onclick', `editDoc("${note}", "${docId}")`)
-    let t = timestamp.toDate();
-    // console.dir(t);
-    let date = t.getDate();
-    let month = t.getMonth();
-    let year = t.getFullYear();
-    let hour = t.getHours();
-    let min = t.getMinutes();
-    // console.log(t.loca)
-    let final = `Date: ${date}-${month}-${year} Time: ${hour}:${min}`;
+
+    //                              CONVERTING TIMESTAMP TO DATE
+    let final = timestampToDate(timestamp);
     console.log(final);
-    // let tt = t.slice(0,24);
     btn3.innerHTML = `<i class="bi bi-calendar-check"></i> \u00A0\u00A0 ${final}`;
+
     // appending element to body
     btndiv.append(btn3, btn2, btn1);
     box.append(note);
     box.append(btndiv);
     notePrev.append(box);
+
+    //                      ******* ADDING ONMOUSEENTER PROPERTY TO BOXDIV *******
+    box.onmouseenter = () => {
+        btndiv.classList.remove('none');
+    }
+    box.onmouseleave = () => {
+        btndiv.classList.add('none');
+    }
 };
 
 const deleteDoc = (id) => {
@@ -181,6 +183,19 @@ signOut.addEventListener('click', () => {
             window.alert(errorCode, errorMessage);
         });
 })
+
+const timestampToDate = timestamp => {
+    //                              CONVERTING TIMESTAMP TO DATE
+    let t = timestamp.toDate();
+    // console.dir(t);
+    let date = t.getDate();
+    let month = t.getMonth();
+    let year = t.getFullYear();
+    let hour = t.getHours();
+    let min = t.getMinutes();
+    let final = `Date: ${date}-${month}-${year} \u00A0Time: ${hour}:${min}`;
+    return final;
+}
 
 
 //                              <-- FIRESTOREARRAY METHOD--/>
