@@ -1,6 +1,6 @@
 body{
     background-color: #eee2dc;
-    background-image: url(backgroundimg.jpg);
+    background-image: url(../PHOTOES/backgroundimg.jpg);
     background-size: cover;
     overflow-y: visible;
 }

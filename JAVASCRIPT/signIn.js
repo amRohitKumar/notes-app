@@ -28,7 +28,7 @@ button.addEventListener('submit', (e) => {
         localStorage.setItem('ID', id);
     })
     .then(() => {
-        window.location.href = "homePage.html";
+        window.location.href = "./HTML/homePage.html";
     })
     .catch((error) => {
         var errorCode = error.code;

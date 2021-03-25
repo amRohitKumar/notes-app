@@ -23,7 +23,7 @@ const editDoc = (note, id) => {
     //              FUNCTION TO EDIT THE NOTE
     localStorage.setItem('currNote', note);
     localStorage.setItem('docId', id);
-    window.location.replace("editNote.html");
+    window.location.replace("../HTML/editNote.html");
 
 };
 
@@ -170,7 +170,7 @@ addNote.addEventListener('click', (e) => {
 signOut.addEventListener('click', () => {
     firebase.auth().signOut()
         .then(() => {
-            window.location.replace("loginPage.html");
+            window.location.replace("../loginPage.html");
             window.alert('Logout Successfully !');
             localStorage.clear();
 

@@ -45,7 +45,7 @@ button.addEventListener('click', (e) => {
             console.log("Document successfully written!");
           })
           .then(() => {
-            window.location.replace("homePage.html");
+            window.location.replace("../HTML/homePage.html");
           })
           .catch((error) => {
             console.error("Error writing document: ", error);

@@ -54,6 +54,6 @@ const updateNote = (id) => {
         });
 
     setTimeout(() => {
-        window.location.replace('homePage.html');
+        window.location.replace('../HTML/homePage.html');
     }, 1000);
 };
