@@ -17,7 +17,8 @@ const signOut = document.querySelector('#signout');
 const userName = document.querySelector('#username')
 const userid = localStorage.getItem('ID');
 const docRef = firestore.collection(userid);
-
+const flagdiv = document.querySelector('#flagdiv');
+flagdiv.classList.add('none');
 
 const editDoc = (note, id) => {
     //              FUNCTION TO EDIT THE NOTE
@@ -118,6 +119,17 @@ window.addEventListener('load', () => {
 
     docRef.get()
         .then((collSnapshot) => {
+
+            // console.dir(collSnapshot);
+            const numberOfNotes = collSnapshot.size;
+            setTimeout(() => {
+                if (numberOfNotes > 0) {
+                    flagdiv.classList.add('none');
+                }
+                else{
+                    flagdiv.classList.remove('none');
+                }
+            }, 2000);
 
 
             //                              <-- USING FIRESTORE ARRAY--/> 

@@ -88,3 +88,20 @@ a:hover{
     justify-content: center;
     align-items: center ;
 }
+
+#flag{
+    border: 1px solid black;
+    border-radius: 0.75em;
+    background-color: rgb(231, 17, 17);
+    color: white;
+    padding: 0.5em 0.75em;
+    font-size: larger;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+#flagdiv{
+    display: flex;
+    justify-content: center;
+}
