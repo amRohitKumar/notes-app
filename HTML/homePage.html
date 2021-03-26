@@ -23,7 +23,8 @@
         <div class="container-fluid">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../PHOTOES/logo-fullsize.png" alt="" width="70" height="60" class="d-inline-block align-top">
+                    <img src="../PHOTOES/logo-fullsize.png" alt="" width="70" height="60"
+                        class="d-inline-block align-top">
                     <span id="username" style="margin: 3em;">User Name</span>
                 </a>
             </div>
@@ -42,10 +43,15 @@
         </div>
     </nav>
     <h1 id="topheading">Notes</h1>
-                                            <!-- THIS IS THE DIV TO STORE NOTES -->
+    <!-- THIS IS THE DIV TO STORE NOTES -->
     <div class="container" id="notes">
         <div id="flagdiv">
-            <span id="flag">No note to show. Create a new note using Add Note option</span>
+            <div id="flag">
+                <span class="loader">
+                    <span class="loader-inner"></span>
+                </span>
+                &nbsp &nbspLoading ...
+            </div>
         </div>
 
     </div>

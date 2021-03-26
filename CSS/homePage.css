@@ -1,107 +1,170 @@
-body{
-    background-color: #eee2dc;
-    background-image: url(../PHOTOES/backgroundimg.jpg);
-    background-size: cover;
-    overflow-y: visible;
+body {
+  background-color: #eee2dc;
+  background-image: url(../PHOTOES/backgroundimg.jpg);
+  background-size: cover;
+  overflow-y: visible;
 }
 
-nav.sticky{
-    margin: 1em;
-    position: sticky;
-    top: 0;
+nav.sticky {
+  margin: 1em;
+  position: sticky;
+  top: 0;
 }
 
-
-#topheading{
-    text-align: center;
-    font-family: cursive;
-    font-weight: bold;
+#topheading {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
 }
 
-
-.capital{
-    text-transform: capitalize;
+.capital {
+  text-transform: capitalize;
 }
 
-#notes{
-    margin-top:  2em;
-    /* border: 3px solid #cbc0d3; */
-    /* height: 100vh; */
-    overflow-y: visible;
+#notes {
+  margin-top: 2em;
+  /* border: 3px solid #cbc0d3; */
+  /* height: 100vh; */
+  overflow-y: visible;
 }
 
-.prevClass{
-    /* this is the class given to each preview div */
-    border: 2px inherit whitesmoke;
-    margin: 0.8em 0.3em;
-    color: #8860d0;
-    padding: 0.5em;
-    background-color: #c1c8e452;
-    height: auto;
-    max-height: 30vh;
-    font-family: 'Redressed', cursive;
-    font-size: 1.5em;
-    transition: all .3s;
-    overflow-y: auto;
-    border-radius: 0.75em;
+.prevClass {
+  /* this is the class given to each preview div */
+  border: 2px inherit whitesmoke;
+  margin: 0.8em 0.3em;
+  color: #8860d0;
+  padding: 0.5em;
+  background-color: #c1c8e452;
+  height: auto;
+  max-height: 30vh;
+  font-family: "Redressed", cursive;
+  font-size: 1.5em;
+  transition: all 0.3s;
+  overflow-y: auto;
+  border-radius: 0.75em;
 }
 
-.prevClass:hover{
-    box-shadow: 0 0 11px rgba(33,33,33,.2);
-    /* background-color: #bab2b5; */
-    /* padding: 0.5em 0.5em; */
-    /* transform: translateY(-3px); */
-    overflow: auto;
-    box-sizing: border-box;
-    color: #562ea0;
-    background-color: #939ec752;
+.prevClass:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  /* background-color: #bab2b5; */
+  /* padding: 0.5em 0.5em; */
+  /* transform: translateY(-3px); */
+  overflow: auto;
+  box-sizing: border-box;
+  color: #562ea0;
+  background-color: #939ec752;
 }
 
-.btndiv{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    /* transition: all .5s; */
+.btndiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  /* transition: all .5s; */
 }
-div button{
-    margin: 0.005em 0.5em;
-    
-}
-
-a{
-    /* border: 1px solid black; */
-    margin: 5px !important;
-    transition: all 0.3s;
-}
-a:hover{
-    transform: translateY(-2px);
+div button {
+  margin: 0.005em 0.5em;
 }
 
-.none{
-    visibility: hidden;
+a {
+  /* border: 1px solid black; */
+  margin: 5px !important;
+  transition: all 0.3s;
+}
+a:hover {
+  transform: translateY(-2px);
 }
 
-.nopointer{
-    cursor: default;
-    /* padding-bottom: 0.075em  !important; */
-    display: flex;
-    justify-content: center;
-    align-items: center ;
+.none {
+  visibility: hidden;
 }
 
-#flag{
-    border: 1px solid black;
-    border-radius: 0.75em;
-    background-color: rgb(231, 17, 17);
-    color: white;
-    padding: 0.5em 0.75em;
-    font-size: larger;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    width: 60%;
+.nopointer {
+  cursor: default;
+  /* padding-bottom: 0.075em  !important; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#flagdiv{
-    display: flex;
-    justify-content: center;
+
+#flag {
+  border: 1px solid black;
+  border-radius: 0.75em;
+  background-color: rgb(231, 17, 17);
+  color: white;
+  padding: 0.5em 0.75em;
+  font-size: larger;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+#flagdiv {
+  display: flex;
+  justify-content: center;
+}
+
+/* LOADING ANIMATION CSS */
+
+.loader {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  position: inherit;
+  border: 4px solid #fff;
+  top: 50%;
+  animation: loader 2s infinite ease;
+  margin-bottom: 0.3em;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+  margin-bottom: 0.3em;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
 }

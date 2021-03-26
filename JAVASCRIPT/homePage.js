@@ -18,7 +18,8 @@ const userName = document.querySelector('#username')
 const userid = localStorage.getItem('ID');
 const docRef = firestore.collection(userid);
 const flagdiv = document.querySelector('#flagdiv');
-flagdiv.classList.add('none');
+const flag = document.querySelector('#flag');
+const loader = document.querySelector('.loader');
 
 const editDoc = (note, id) => {
     //              FUNCTION TO EDIT THE NOTE
@@ -55,11 +56,13 @@ const createNote = (doc) => {
     btn2.classList.add('btn', 'btn-light', 'btn-sm');
     btn3.classList.add('btn', 'btn-light', 'btn-sm', 'nopointer');
     btn1.innerHTML = '<i class="bi bi-trash"></i> \u00A0\u00A0 &nbspDelete'
+    // btn1.innerHTML = '<i class="bi bi-trash"></i>'
     // btn1.innerText = 'Delete'
     btn1.href = '#';
     btn1.setAttribute('onclick', `deleteDoc("${docId}")`);
 
     btn2.innerHTML = '<i class="bi bi-pencil-square"> \u00A0\u00A0 &nbsp</i>Edit'
+    // btn2.innerHTML = '<i class="bi bi-pencil-square"></i>'
     btn2.href = '#';
     btn2.setAttribute('onclick', `editDoc("${note}", "${docId}")`)
 
@@ -85,23 +88,24 @@ const createNote = (doc) => {
 
 const deleteDoc = (id) => {
     //                                  FUNCTION TO DELETE A NOTE
-
-
-    docRef.doc(id).delete()
-        .then(() => {
-            window.alert('Note deleted sucessfully !!!');
-            window.location.reload(true);
-            return;
-        }).catch((error) => {
-            console.log(error);
-            window.alert("Something went wrong !!!");
-        });
-
-    setTimeout(() => {
-        console.log('wait !!!');
-    }, 1000);
-
-    return false;
+    var result = confirm("Are you sure you want to delete this note ?");
+    if (result) {
+        docRef.doc(id).delete()
+            .then(() => {
+                window.alert('Note deleted sucessfully !!!');
+                window.location.reload(true);
+                return;
+            }).catch((error) => {
+                console.log(error);
+                window.alert("Something went wrong !!!");
+            });
+    
+        setTimeout(() => {
+            console.log('wait !!!');
+        }, 1000);
+    
+        return false;
+    }
 };
 
 
@@ -122,14 +126,14 @@ window.addEventListener('load', () => {
 
             // console.dir(collSnapshot);
             const numberOfNotes = collSnapshot.size;
-            setTimeout(() => {
-                if (numberOfNotes > 0) {
-                    flagdiv.classList.add('none');
-                }
-                else{
-                    flagdiv.classList.remove('none');
-                }
-            }, 2000);
+            if (numberOfNotes > 0) {
+                flagdiv.classList.add('none');
+            }
+            else {
+                // flagdiv.classList.remove('none');
+                // loader.classList.add('none');
+                flag.innerText = 'No note to show. Create a new note using Add Note option';
+            }
 
 
             //                              <-- USING FIRESTORE ARRAY--/> 
