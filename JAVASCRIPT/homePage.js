@@ -10,6 +10,15 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl, options);
+})
+var options = {
+    animation: true,
+};
+
 const firestore = firebase.firestore();
 const notePrev = document.querySelector('#notes');  // notePrev is the container in which we will add notes
 const addNote = document.querySelector('#addnote');
@@ -55,27 +64,45 @@ const createNote = (doc) => {
     btn1.classList.add('btn', 'btn-light', 'btn-sm');
     btn2.classList.add('btn', 'btn-light', 'btn-sm');
     btn3.classList.add('btn', 'btn-light', 'btn-sm', 'nopointer');
-    btn1.innerHTML = '<i class="bi bi-trash"></i> \u00A0\u00A0 &nbspDelete'
-    // btn1.innerHTML = '<i class="bi bi-trash"></i>'
-    // btn1.innerText = 'Delete'
+
+    // TOOLTIP ON DELETE BUTTON
+
+    // btn1.innerHTML = '<i class="bi bi-trash"></i> \u00A0\u00A0 &nbspDelete'
+    btn1.innerHTML = '<i class="bi bi-trash"></i>'
+    // btn1.setAttribute('container', 'body');
+    // btn1.setAttribute('data-bs-toggle', 'tooltip');
+    // btn1.setAttribute('data-bs-placement', 'bottom');
+    // btn1.setAttribute('title', 'Delete');
     btn1.href = '#';
     btn1.setAttribute('onclick', `deleteDoc("${docId}")`);
 
-    btn2.innerHTML = '<i class="bi bi-pencil-square"> \u00A0\u00A0 &nbsp</i>Edit'
-    // btn2.innerHTML = '<i class="bi bi-pencil-square"></i>'
+    //      TOOLTIP ON EDIT BUTTON
+    // btn2.setAttribute('container', 'body');
+    // btn2.setAttribute('data-bs-toggle', 'tooltip');
+    // btn2.setAttribute('data-bs-placement', 'bottom');
+    // btn2.setAttribute('title', 'Edit');
+    // btn2.innerHTML = '<i class="bi bi-pencil-square"> \u00A0\u00A0 &nbsp</i>Edit'
+    btn2.innerHTML = '<i class="bi bi-pencil-square"></i>'
     btn2.href = '#';
     btn2.setAttribute('onclick', `editDoc("${note}", "${docId}")`)
+
 
     //                              CONVERTING TIMESTAMP TO DATE
     let final = timestampToDate(timestamp);
     console.log(final);
     btn3.innerHTML = `<i class="bi bi-calendar-check"></i> \u00A0\u00A0 ${final}`;
+    // btn3.innerHTML = `<i class="bi bi-calendar-check"></i>`;
+    // btn3.setAttribute('container', 'body');
+    // btn3.setAttribute('data-bs-toggle', 'tooltip');
+    // btn3.setAttribute('data-bs-placement', 'bottom');
+    // btn3.setAttribute('title', `${final}`);
 
     // appending element to body
     btndiv.append(btn3, btn2, btn1);
     box.append(note);
     box.append(btndiv);
     notePrev.append(box);
+
 
     //                      ******* ADDING ONMOUSEENTER PROPERTY TO BOXDIV *******
     box.onmouseenter = () => {
@@ -84,6 +111,7 @@ const createNote = (doc) => {
     box.onmouseleave = () => {
         btndiv.classList.add('none');
     }
+
 };
 
 const deleteDoc = (id) => {
@@ -99,11 +127,11 @@ const deleteDoc = (id) => {
                 console.log(error);
                 window.alert("Something went wrong !!!");
             });
-    
+
         setTimeout(() => {
             console.log('wait !!!');
         }, 1000);
-    
+
         return false;
     }
 };

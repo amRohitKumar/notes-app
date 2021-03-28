@@ -30,12 +30,14 @@ const button = document.querySelector('.button');
 
 button.addEventListener('click', (e) => {
   e.preventDefault();
-  const notes = textarea.value;
-
+  const notes = textarea.value.trim();
+  
   var usersRef = firestore.collection(userid);
 
-  usersRef.get()
-    .then((coll) => {
+  // LENGTH OF TEXT SHOUD NOT BE ZERO
+  if (textarea.value.trim().length !== 0) {
+    usersRef.get()
+      .then((coll) => {
         usersRef.add({
           note: notes,
           timestamp: new Date()
@@ -51,10 +53,15 @@ button.addEventListener('click', (e) => {
             console.error("Error writing document: ", error);
           });
 
-    })
-    .catch((error) => {
-      window.alert("Something went wrong !! Try again later");
-      console.log("Error getting document:", error);
-    });
+      })
+      .catch((error) => {
+        window.alert("Something went wrong !! Try again later");
+        console.log("Error getting document:", error);
+      });
+  }
+  else{
+    window.alert("Please add some text !");
+  }
+
 })
 

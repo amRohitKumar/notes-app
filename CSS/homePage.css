@@ -81,9 +81,17 @@ a:hover {
 .nopointer {
   cursor: default;
   /* padding-bottom: 0.075em  !important; */
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
+  align-content: flex-end; */
+  height: min-content;
+}
+
+.btndiv span{
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 0.30em;
 }
 
 #flag {
