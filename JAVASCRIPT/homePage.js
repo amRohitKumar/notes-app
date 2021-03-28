@@ -30,8 +30,9 @@ const flagdiv = document.querySelector('#flagdiv');
 const flag = document.querySelector('#flag');
 const loader = document.querySelector('.loader');
 
-const editDoc = (note, id) => {
+const editDoc = (title, note, id) => {
     //              FUNCTION TO EDIT THE NOTE
+    localStorage.setItem('currTitle', title);
     localStorage.setItem('currNote', note);
     localStorage.setItem('docId', id);
     window.location.replace("../HTML/editNote.html");
@@ -41,7 +42,7 @@ const editDoc = (note, id) => {
 const createNote = (doc) => {
     //         CREATING DIV FOR EACH NOTE AND APPENDING IT IN PREV DIV
 
-
+    let title = doc.get('title');
     let note = doc.get('note');
     let docId = doc.id;
     let timestamp;
@@ -50,6 +51,7 @@ const createNote = (doc) => {
     // creating elements
     const box = document.createElement('div');
     const btndiv = document.createElement('div');
+    const titlediv = document.createElement('div');
     const btn1 = document.createElement('a');
     btn1.classList.add('btns');
     const btn2 = document.createElement('a');
@@ -60,6 +62,7 @@ const createNote = (doc) => {
 
     // adding class to elements
     box.classList.add('prevClass', 'container');
+    titlediv.classList.add('container', 'titlediv', 'capital');
     btndiv.classList.add('btndiv', 'none');
     btn1.classList.add('btn', 'btn-light', 'btn-sm');
     btn2.classList.add('btn', 'btn-light', 'btn-sm');
@@ -84,7 +87,7 @@ const createNote = (doc) => {
     // btn2.innerHTML = '<i class="bi bi-pencil-square"> \u00A0\u00A0 &nbsp</i>Edit'
     btn2.innerHTML = '<i class="bi bi-pencil-square"></i>'
     btn2.href = '#';
-    btn2.setAttribute('onclick', `editDoc("${note}", "${docId}")`)
+    btn2.setAttribute('onclick', `editDoc("${title}", "${note}", "${docId}")`)
 
 
     //                              CONVERTING TIMESTAMP TO DATE
@@ -99,7 +102,9 @@ const createNote = (doc) => {
 
     // appending element to body
     btndiv.append(btn3, btn2, btn1);
+    box.append(titlediv);
     box.append(note);
+    titlediv.append(title);
     box.append(btndiv);
     notePrev.append(box);
 
@@ -107,9 +112,11 @@ const createNote = (doc) => {
     //                      ******* ADDING ONMOUSEENTER PROPERTY TO BOXDIV *******
     box.onmouseenter = () => {
         btndiv.classList.remove('none');
+        titlediv.classList.add('titledivhover');
     }
     box.onmouseleave = () => {
         btndiv.classList.add('none');
+        titlediv.classList.remove('titledivhover');
     }
 
 };

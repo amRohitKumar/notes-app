@@ -55,6 +55,20 @@ nav.sticky {
   background-color: #939ec752;
 }
 
+.titlediv{
+  padding-left: 1em;
+  margin-bottom: 0.15em;
+  transition: all 0.5s ease-out;
+}
+
+.titledivhover{
+  border-left: 5px solid #5680e9;
+  background-color: #a2b4df5e;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  /* width: 40%; */
+}
+
 .btndiv {
   display: flex;
   flex-wrap: wrap;
