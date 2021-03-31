@@ -1,6 +1,7 @@
 body {
   background-color: #eee2dc;
-  background-image: url(../PHOTOES/backgroundimg.jpg);
+  background-image: url(../PHOTOES/loginpage.jpeg);
+  background-attachment: fixed;
   background-size: cover;
   overflow-y: visible;
 }
@@ -11,7 +12,9 @@ nav.sticky {
   top: 0;
 }
 nav {
+  border: 1px solid black;
   border-radius: 10px;
+  height: fit-content;
 }
 
 #topheading {
@@ -35,9 +38,13 @@ nav {
   /* this is the class given to each preview div */
   border: 2px inherit whitesmoke;
   margin: 0.8em 0.3em;
-  color: #8860d0;
+  color: #202124;
   padding: 0.5em;
-  background-color: #c1c8e452;
+  background-color: #c1c8e42c;
+  /* border: 1px solid #ccc; */
+  /* border-bottom: 5px solid black; */
+  
+  /* border-right: 5px solid black; */
   height: auto;
   max-height: 30vh;
   font-family: "Redressed", cursive;
@@ -74,6 +81,7 @@ nav {
 
 .btndiv {
   display: flex;
+
   flex-wrap: wrap;
   justify-content: flex-end;
   /* transition: all .5s; */
@@ -110,6 +118,18 @@ a:hover {
   align-self: flex-end;
   margin-bottom: 0.3em;
 }
+/* img{
+  display: inline-flex;
+}
+#username{
+  display: inline-flex;
+  
+  flex-wrap: wrap;
+} */
+
+#userspan{
+  margin: 0.5em;
+}
 
 #flag {
   border: 1px solid black;
@@ -126,6 +146,27 @@ a:hover {
 #flagdiv {
   display: flex;
   justify-content: center;
+}
+
+
+@media screen and (max-width: 450px) {
+  #username{
+    margin: auto;
+    display: block;
+  }
+  img{
+    margin: auto;
+    display: block;
+  }
+  #t{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .btndiv{
+    justify-content: center;
+  }
 }
 
 /* LOADING ANIMATION CSS */

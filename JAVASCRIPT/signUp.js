@@ -12,7 +12,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-const button = document.querySelector('#contactForm');
+const button = document.querySelector('#finalSubmit');
 let flag = document.querySelector(".flag");
 
 button.addEventListener('submit', (e) => {
