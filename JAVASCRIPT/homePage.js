@@ -11,18 +11,20 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl, options);
-})
-var options = {
-    animation: true,
-};
+//                                          <----- FIREBASE TOOLTIP ------>
+// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+//     return new bootstrap.Tooltip(tooltipTriggerEl, options);
+// })
+// var options = {
+//     animation: true,
+// };
 
 const firestore = firebase.firestore();
 const notePrev = document.querySelector('#notes');  // notePrev is the container in which we will add notes
 const addNote = document.querySelector('#addnote');
 const signOut = document.querySelector('#signout');
+const deleteAcc = document.querySelector('#deleteAcc');
 const userName = document.querySelector('#username')
 const userid = localStorage.getItem('ID');
 const docRef = firestore.collection(userid);
@@ -249,7 +251,7 @@ const timestampToDate = timestamp => {
 }
 
 
-//                              <-- FIRESTOREARRAY METHOD--/>
+//                              <-- FIRESTOREARRAY METHOD-->
 // function del(currdiv) {
 //     firestore.collection('users').doc(userid).update({
 //         messages: firebase.firestore.FieldValue.arrayRemove(currdiv)

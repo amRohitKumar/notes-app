@@ -19,7 +19,7 @@ nav {
 
 #topheading {
   text-align: center;
-  font-family: cursive;
+  font-family: Roboto, Arial, sans-serif;;
   font-weight: bold;
 }
 
@@ -47,7 +47,7 @@ nav {
   /* border-right: 5px solid black; */
   height: auto;
   max-height: 30vh;
-  font-family: "Redressed", cursive;
+  font-family: Roboto, Arial, sans-serif;;
   font-size: 1.5em;
   transition: all 0.3s;
   overflow-y: auto;
@@ -148,6 +148,17 @@ a:hover {
   justify-content: center;
 }
 
+@media screen and (max-width: 991px) {
+  #navbartoggler{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .navbar-toggler{
+    position: relative;
+    top: -1.5em;
+  }
+}
 
 @media screen and (max-width: 450px) {
   #username{
@@ -166,6 +177,22 @@ a:hover {
   }
   .btndiv{
     justify-content: center;
+  }
+  #userspan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  #navbartoggler{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-toggler{
+    position: relative;
+    top: -0.5em;
   }
 }
 

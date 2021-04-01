@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/homePage.css">
 
     <title>Notes-App</title>
@@ -26,15 +27,18 @@
                     <span id="username">User Name</span>
                 </span>
             </div>
-            <button class=" navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div id="navbartoggler">
+                <button  class=" navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin: auto;">
                 <form class="d-flex">
                     <button id="addnote" class="btn btn-outline-success" type="button" style="margin-right: 1em; margin-top: 0.5em;">Add Note</button>
                     <button id="signout" class="btn btn-outline-success" type="submit" style="margin-right: 1em; margin-top: 0.5em;">Sign-Out</button>
+                    <!-- <button id="deleteAcc" class="btn btn-outline-success" type="submit" style="margin-right: 1em; margin-top: 0.5em;">Delete Account</button> -->
                 </form>
             </div>
         </div>
