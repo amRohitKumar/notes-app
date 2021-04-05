@@ -21,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 // };
 
 const firestore = firebase.firestore();
+const topHeading = document.querySelector('#topheading');
 const notePrev = document.querySelector('#notes');  // notePrev is the container in which we will add notes
 const addNote = document.querySelector('#addnote');
 const signOut = document.querySelector('#signout');
@@ -54,6 +55,7 @@ const createNote = (doc) => {
     const box = document.createElement('div');
     const btndiv = document.createElement('div');
     const titlediv = document.createElement('div');
+    const b = document.createElement('b');
     const btn1 = document.createElement('a');
     btn1.classList.add('btns');
     const btn2 = document.createElement('a');
@@ -106,7 +108,8 @@ const createNote = (doc) => {
     btndiv.append(btn3, btn2, btn1);
     box.append(titlediv);
     box.append(note);
-    titlediv.append(title);
+    b.append(title);
+    titlediv.append(b);
     box.append(btndiv);
     notePrev.append(box);
 
@@ -165,6 +168,7 @@ window.addEventListener('load', () => {
             const numberOfNotes = collSnapshot.size;
             if (numberOfNotes > 0) {
                 flagdiv.classList.add('none');
+                topHeading.classList.add('underline');
             }
             else {
                 // flagdiv.classList.remove('none');
