@@ -5,7 +5,8 @@ var firebaseConfig = {
     projectId: "notes-app-a51b7",
     storageBucket: "notes-app-a51b7.appspot.com",
     messagingSenderId: "415019923323",
-    appId: "1:415019923323:web:601a346c65aca6fee42fde"
+    appId: "1:415019923323:web:601a346c65aca6fee42fde",
+    // storageBucket: 'gs://notes-app-a51b7.appspot.com/usermanual2.pdf'
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
