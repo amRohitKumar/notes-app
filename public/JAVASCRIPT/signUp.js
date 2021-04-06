@@ -12,15 +12,16 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-const button = document.querySelector('#finalSubmit');
+const button = document.querySelector('#contactForm');
 let flag = document.querySelector(".flag");
 
 button.addEventListener('submit', (e) => {
     e.preventDefault();
+
     var fname = document.querySelector("#firstName").value;
     var lname = document.querySelector("#lastName").value;
     let email = document.querySelector("#email").value;
-    let password = document.querySelector("#password").value;
+    let password = document.querySelector("#pwd").value;
 
 
     firebase.auth().createUserWithEmailAndPassword(email, password)

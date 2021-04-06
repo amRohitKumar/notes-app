@@ -6,11 +6,12 @@ body {
   overflow-y: visible;
 }
 
-nav.sticky {
+.sticky {
   margin: 1em;
   position: sticky;
   top: 0;
 }
+
 nav {
   border: 1px solid black;
   border-radius: 10px;
@@ -132,9 +133,9 @@ a:hover {
   margin: 0.5em;
 }
 
-.underline{
+/* .underline{
   text-decoration: underline solid rgba(135, 39, 190, 0.397);
-}
+} */
 
 #flag {
   border: 1px solid black;
