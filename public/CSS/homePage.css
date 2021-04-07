@@ -66,6 +66,8 @@ nav {
   background-color: #939ec752;
 }
 
+
+
 .titlediv {
   padding-left: 1em;
   margin-bottom: 0.15em;
@@ -92,6 +94,16 @@ div button {
   margin: 0.005em 0.5em;
 }
 
+
+a[href = "#"] {
+  /* border: 1px solid black; */
+  margin: 5px !important;
+  /* transition: all 0.1s; */
+}
+
+a:hover[href = "#"] {
+  transform: translateY(-2px);
+}
 
 .none {
   visibility: hidden;
