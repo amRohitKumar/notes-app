@@ -1,40 +1,32 @@
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAdOe_JssV-5HlVYM0GhFwKlT_G_d-8q2M",
-    authDomain: "notes-app-a51b7.firebaseapp.com",
-    projectId: "notes-app-a51b7",
-    storageBucket: "notes-app-a51b7.appspot.com",
-    messagingSenderId: "415019923323",
-    appId: "1:415019923323:web:601a346c65aca6fee42fde"
-  };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+import { app } from "./firebase.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
+const button = document.querySelector("#contactForm");
 
-const button = document.querySelector('#contactForm');
+button.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-button.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    let email = document.querySelector("#email").value;
-    let pwd = document.querySelector("#pwd").value;
+  let email = document.querySelector("#email").value;
+  let pwd = document.querySelector("#pwd").value;
 
-    firebase.auth().signInWithEmailAndPassword(email, pwd)
-    .then((userCredential) => {
-        window.alert('Welcome !!!');
-    })
-    .then(() => {
-        let id = firebase.auth().currentUser.uid;
-        localStorage.setItem('ID', id);
-    })
-    .then(() => {
-        window.location.href = "./HTML/homePage.html";
+  const auth = getAuth(app);
+  signInWithEmailAndPassword(auth, email, pwd)
+    .then((currentUser) => {
+      window.alert("Welcome !!!");
+      let id = currentUser.uid;
+      localStorage.setItem("ID", id);
+      window.location.href = "./HTML/homePage.html";
     })
     .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-        window.alert(errorCode, errorMessage);
+      alert(errorCode, errorMessage);
+    })
+    .finally(() => {
+      document.querySelector("#contactForm").reset();
     });
-    document.querySelector("#contactForm").reset();
-})
+});
